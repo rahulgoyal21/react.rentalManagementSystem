@@ -1,0 +1,18 @@
+.subcategories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
+  padding: 40px;
+  justify-items: center;
+}
+.subcategories > div {
+  box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
+  -webkit-box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
+}
+
+.subcategories > div > div {
+  background: blue;
+  color: #ffffff;
+  padding: 10px;
+}

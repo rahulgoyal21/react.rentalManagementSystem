@@ -4,9 +4,11 @@ import { catalog } from '../../catalog';
 import { handleLocationChange } from '../../actions/location';
 import { useSelector, useDispatch } from 'react-redux';
 import { handleBranchChange } from '../../actions/branch';
+import { useHistory, Link } from 'react-router-dom';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { selectedBranchFromLocation, locationName } = useSelector(
     (state) => state.locationReducer
   );
@@ -26,7 +28,9 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <div className='content'> Rental Management System</div>
+      <Link to='/' style={{ textDecoration: 'none', color: '#ffffff' }}>
+        <div className='content'> Rental Management System</div>
+      </Link>
       <div></div>
       <div></div>
       <div className='content'>
@@ -49,9 +53,10 @@ const Header = () => {
         </select>
         <div
           className='branches'
-          onClick={(event) =>
-            dispatch(handleBranchChange(event, selectedBranchFromLocation))
-          }
+          onClick={(event) => {
+            dispatch(handleBranchChange(event, selectedBranchFromLocation));
+            history.push(`/categories/${event.target.dataset.id}`);
+          }}
         >
           {selectedBranchFromLocation.length > 0 &&
             selectedBranchFromLocation.map((item) => (
