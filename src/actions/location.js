@@ -5,7 +5,7 @@ export const handleLocationChange = (event) => {
   //Find the branches from location input
   const branchesFromLocation = catalog.data.locations.find(
     (item) => item.name === event.target.value
-  ).branches;
+  )?.branches;
 
   return {
     type: LOCATION_SELECTED,
