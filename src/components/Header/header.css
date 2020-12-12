@@ -7,4 +7,21 @@
 .content {
   padding: 10px;
   white-space: nowrap;
+  position: relative;
+}
+.branches {
+  position: absolute;
+  left: 0;
+  background: #ffffff;
+  color: #000000;
+  max-height: 200px;
+  overflow: auto;
+}
+.branchName {
+  padding: 10px;
+  cursor: pointer;
+}
+.branchName:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
