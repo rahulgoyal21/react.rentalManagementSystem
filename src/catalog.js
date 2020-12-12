@@ -1,4 +1,4 @@
-export const data = {
+export const catalog = {
   status: 'success',
   data: {
     locations: [
