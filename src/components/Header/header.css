@@ -1,0 +1,10 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0px 20px;
+}
+
+.content {
+  padding: 10px;
+  white-space: nowrap;
+}
