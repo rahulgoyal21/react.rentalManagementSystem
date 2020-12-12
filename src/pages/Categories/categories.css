@@ -11,8 +11,22 @@
   -moz-box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
 }
 
-.categories > div > div {
+.categories > div > section {
   background: blue;
   color: #ffffff;
   padding: 10px;
+}
+
+.headingConatiner {
+  height: 50px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 25px;
+}
+
+.heading {
+  position: relative;
+  left: 6%;
+  display: flex;
 }
