@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './header.css';
 import { catalog } from '../../catalog';
 import { handleLocationChange } from '../../actions/location';
@@ -6,8 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [location, setLocation] = useState('');
-  const branches = useSelector((state) => state.locationReducer);
+  const { selectedBranchFromLocation, locationName } = useSelector(
+    (state) => state.locationReducer
+  );
 
   //Extracting locations name from catalog
   const locations = catalog.data.locations.reduce((acc, item) => {
@@ -16,7 +17,7 @@ const Header = () => {
   }, []);
 
   console.log('LOCATIONS', locations);
-  console.log('BRANCHES', branches);
+  console.log('BRANCHES', selectedBranchFromLocation);
   return (
     <div className='header'>
       <div className='content'> Rental Management System</div>
@@ -24,9 +25,8 @@ const Header = () => {
       <div></div>
       <div className='content'>
         <select
-          value={location}
+          value={locationName}
           onChange={(event) => {
-            setLocation(event.target.value);
             dispatch(handleLocationChange(event));
           }}
           placeholder='Select Location'

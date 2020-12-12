@@ -7,5 +7,8 @@ export const handleLocationChange = (event) => {
     (item) => item.name === event.target.value
   ).branches;
 
-  return { type: LOCATION_SELECTED, payload: branchesFromLocation };
+  return {
+    type: LOCATION_SELECTED,
+    payload: { branches: branchesFromLocation, location: event.target.value }
+  };
 };
