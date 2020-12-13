@@ -1,7 +1,9 @@
 .header {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding: 0px 20px;
+  align-items: center;
+  justify-items: center;
 }
 
 .content {
@@ -11,11 +13,15 @@
 }
 .branches {
   position: absolute;
-  left: 0;
+  left: 18%;
   background: #ffffff;
   color: #000000;
-  max-height: 200px;
+  max-height: 225px;
   overflow: auto;
+  min-width: 10vw;
+  box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
+  -webkit-box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: 1px 0px 18px 0px rgba(0, 0, 0, 0.61);
 }
 .branchName {
   padding: 10px;

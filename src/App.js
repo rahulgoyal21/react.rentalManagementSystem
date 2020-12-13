@@ -29,7 +29,9 @@ const App = () => {
             />
           </Switch>
         </Router>
-        <footer className='App-footer'>Goyal</footer>
+        <footer className='App-footer'>
+          Crownstack Technologies Code Challenge
+        </footer>
       </div>
     </Provider>
   );

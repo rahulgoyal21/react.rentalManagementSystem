@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './header.css';
 import { catalog } from '../../catalog';
 import { handleLocationChange } from '../../actions/location';
@@ -9,11 +9,9 @@ import { useHistory, Link } from 'react-router-dom';
 const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [openBranchesOptions, setOpenBranchesOption] = useState(false);
   const { selectedBranchFromLocation, locationName } = useSelector(
     (state) => state.locationReducer
-  );
-  const { selectedCategoriesFromBranch } = useSelector(
-    (state) => state.branchReducer
   );
 
   //Extracting locations name from catalog
@@ -22,23 +20,24 @@ const Header = () => {
     return acc;
   }, []);
 
-  console.log('LOCATIONS', locations);
-  console.log('BRANCHES', selectedBranchFromLocation);
-  console.log('CATEGORIES', selectedCategoriesFromBranch);
+  const handleInputChange = (event) => {
+    dispatch(handleBranchChange(event, selectedBranchFromLocation));
+    history.push(`/categories/${event.target.dataset.id}`);
+    setOpenBranchesOption(false);
+  };
 
   return (
     <div className='header'>
       <Link to='/' style={{ textDecoration: 'none', color: '#ffffff' }}>
         <div className='content'> Rental Management System</div>
       </Link>
-      <div></div>
-      <div></div>
       <div className='content'>
         <select
-          style={{ position: 'relative' }}
+          style={{ padding: '5px' }}
           value={locationName}
           onChange={(event) => {
             dispatch(handleLocationChange(event));
+            setOpenBranchesOption(true);
           }}
           placeholder='Select Location'
         >
@@ -51,14 +50,9 @@ const Header = () => {
             </option>
           ))}
         </select>
-        <div
-          className='branches'
-          onClick={(event) => {
-            dispatch(handleBranchChange(event, selectedBranchFromLocation));
-            history.push(`/categories/${event.target.dataset.id}`);
-          }}
-        >
+        <div className='branches' onClick={(event) => handleInputChange(event)}>
           {selectedBranchFromLocation.length > 0 &&
+            openBranchesOptions &&
             selectedBranchFromLocation.map((item) => (
               <div
                 className='branchName'
