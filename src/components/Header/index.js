@@ -10,6 +10,8 @@ const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [openBranchesOptions, setOpenBranchesOption] = useState(false);
+
+  //Fetching branches and locationName from redux store
   const { selectedBranchFromLocation, locationName } = useSelector(
     (state) => state.locationReducer
   );
@@ -20,6 +22,7 @@ const Header = () => {
     return acc;
   }, []);
 
+  //Handler function
   const handleInputChange = (event) => {
     dispatch(handleBranchChange(event, selectedBranchFromLocation));
     history.push(`/categories/${event.target.dataset.id}`);
@@ -28,10 +31,11 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <Link to='/' style={{ textDecoration: 'none', color: '#ffffff' }}>
+      <Link to='/' className='tilteStyle'>
         <div className='content'> Rental Management System</div>
       </Link>
       <div className='content'>
+        {/* Location Dropdown */}
         <select
           style={{ padding: '5px' }}
           value={locationName}
@@ -50,6 +54,8 @@ const Header = () => {
             </option>
           ))}
         </select>
+
+        {/* Branches Dropdown */}
         <div className='branches' onClick={(event) => handleInputChange(event)}>
           {selectedBranchFromLocation.length > 0 &&
             openBranchesOptions &&

@@ -6,6 +6,11 @@
   justify-items: center;
 }
 
+.tilteStyle {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .content {
   padding: 10px;
   white-space: nowrap;
