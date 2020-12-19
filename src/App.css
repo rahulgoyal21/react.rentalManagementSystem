@@ -12,7 +12,7 @@
 }
 
 .App-header {
-  font-size: calc(7px + 2vmin);
+  font-size: calc(12px + 2vmin);
   color: white;
   left: 0;
   top: 0;
@@ -23,12 +23,15 @@
 }
 
 .App-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   color: white;
   text-align: center;
   background-color: #282c34;

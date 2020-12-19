@@ -18,11 +18,11 @@
 }
 
 .headingConatiner {
-  height: 50px;
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 25px;
+  padding: 5rem 1.3rem 0px 1.3rem;
+  font-size: calc(10px + 2vmin);
 }
 
 .heading {
